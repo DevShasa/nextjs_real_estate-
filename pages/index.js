@@ -21,7 +21,7 @@ const Banner = ({ purpose, title1, title2, desc1, desc2, linkName, buttonText, i
 
 export default function Home({ propertiesForSale, propertiesForRent }) {
   return (
-    <Box>
+    <Box border='1px' borderColor='gray.200' width="full">
         <Banner 
           purpose={"RENT A HOME"}
           title1="Rental homes for"
@@ -33,7 +33,7 @@ export default function Home({ propertiesForSale, propertiesForRent }) {
           imageUrl="https://bayut-production.s3.eu-central-1.amazonaws.com/image/145426814/33973352624c48628e41f2ec460faba4"
         />
         <Flex flexWrap="wrap">
-          { propertiesForSale.map((property)=> <Property property={property} key={property.id}/>) }
+          { propertiesForRent.map((property)=> <Property property={property} key={property.id}/>) }
         </Flex>
         <Banner 
           purpose={"BUY A HOME"}
