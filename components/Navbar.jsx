@@ -14,7 +14,7 @@ const Navbar = ()=>{
             <Spacer />
             <Box>
                 <Menu>
-                    <MenuButton as={IconButton} icon={<FcMenu />} variant="outline" color="red.400" />
+                    <MenuButton as={IconButton} icon={<FcMenu />} variant="outline" />
                     <MenuList>
                         <Link  href="/" passHref>
                             <MenuItem icon={<FcHome />}>Home</MenuItem>
@@ -27,6 +27,9 @@ const Navbar = ()=>{
                         </Link>
                         <Link href="/search?purpose=for-rent" passHref>
                             <MenuItem icon={<FiKey/>}>Rent Property</MenuItem>
+                        </Link>
+                        <Link href="/search?sort=price-asc" passHref>
+                            <MenuItem icon={<FiKey/>}>Price Ascending</MenuItem>
                         </Link>
                     </MenuList>
                 </Menu>
