@@ -6,6 +6,7 @@ import { FaSearchLocation } from "react-icons/fa";
 import Image from "next/image";
 import { filterData, getFilterValues } from '../utils/filterData';
 import { fetchApi, baseUrl } from "../utils/fetchApi";
+import Link from 'next/link';
 
 const SearchFilters = () => {
     const [filters, setFilters] =  useState(filterData)
@@ -100,6 +101,22 @@ const SearchFilters = () => {
                 ) }
                 {spinner && <Spinner/>}
             </Flex>
+            {searchResults.length > 0 && (
+                <Flex flexWrap="wrap">
+                    {searchResults.map((property) =>(
+                        <Link 
+                            key={property.id} 
+                            href={`/property/${property?.externalID}`} 
+                            passHref
+                        >
+                            <Button p="2" m="3" border="1px" borderColor="green.300" cursor="pointer">
+                                { property.name }
+                            </Button>
+                        </Link>
+
+                    ))}
+                </Flex>
+            )}
         </Box>
     )
 }
