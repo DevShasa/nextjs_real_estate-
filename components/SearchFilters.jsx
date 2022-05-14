@@ -97,9 +97,9 @@ const SearchFilters = () => {
                         </InputGroup>
                     </form>
                 ) }
-                {spinner && <Spinner/>}
+                {spinner && <Box marginLeft="5"><Spinner/></Box>}
             </Flex>
-            {searchResults.length > 0 && (
+            {displaySearch && searchResults.length > 0 && (
                 <Flex flexWrap="wrap">
                     {searchResults.map((property) =>(
                         <Link 
