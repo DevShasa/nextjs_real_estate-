@@ -47,7 +47,8 @@ const Search = ({ properties }) => {
 export default Search
 
 export async function getServerSideProps({ query }){
-
+    // query is for query parameters for instance  /search?purpose=for-rent...
+    // will result in query being {purpose: "for-rent"}
     const purpose = query.purpose || "for-sale";
     const rentFrequency = query.rentFrequency || "yearly";
     const minPrice = query.minPrice || '0';
