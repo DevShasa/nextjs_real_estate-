@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { Flex, Select, Box, Text, Input, Spinner, Icon, Button, InputGroup,  InputLeftElement} from "@chakra-ui/react";
+import React, { useState } from 'react';
+import { Flex, Select, Box, Input, Spinner, Button, InputGroup,  InputLeftElement} from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import { MdCancel } from "react-icons/md";
 import { FaSearchLocation } from "react-icons/fa";
-import Image from "next/image";
 import { filterData, getFilterValues } from '../utils/filterData';
 import { fetchApi, baseUrl } from "../utils/fetchApi";
 import Link from 'next/link';
@@ -40,7 +38,7 @@ const SearchFilters = () => {
         const fetchData = async ()=>{
             try{
                 setSpinner(true)
-                const data = await fetchApi(`${baseUrl}/auto-complete?query=${searchTerm.trim()}&hitsPerPage=3`)
+                const data = await fetchApi(`${baseUrl}/auto-complete?query=${searchTerm.trim()}&hitsPerPage=10`)
                 setSearchResults(data.hits)
                 setSpinner(false)
             }catch(error){
