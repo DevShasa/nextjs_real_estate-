@@ -22,7 +22,7 @@ const SearchFilters = () => {
         // loop over the values
         values.forEach((item) =>{
             // append the values to query parameters
-            if(item.value && filterValues?.[item.name]){
+            if(item.value && filterValues[item.name]){
                 query[item.name] = item.value
             }
         })

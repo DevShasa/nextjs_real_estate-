@@ -9,7 +9,7 @@ import { baseUrl, fetchApi } from "../../utils/fetchApi";
 const PropertyDetail = ({property})=>(
     <Box maxWidth="1000px" margin="auto" p="4">
         {/* image scroll */}
-        {property.photos && <ImageScrollbar data={property.photos}/>}
+        {property.photos && <ImageScrollbar data={property?.photos}/>}
         {/* Icons and heading */}
         <Box w='full' p="6">
             <Flex paddingTop="2" alignItems="center">
@@ -17,42 +17,42 @@ const PropertyDetail = ({property})=>(
                     {property.isVerified && <GoVerified />}
                 </Box>
                 <Text fontWeight="bold" fontSize="lg">
-                    AED {property.price} {property.rentFrequency && `/${property.rentFrequency}`}
+                    AED {property?.price} {property?.rentFrequency && `/${property?.rentFrequency}`}
                 </Text>
                 <Spacer/>
                 <Avatar size="sm" src={property?.agency?.logo?.url}></Avatar>
             </Flex>
 
             <Flex alignItems="center" p="1" justifyContent="space-between" w="250px" color="blue.400">
-                {property.rooms}<FaBed /> | {property.baths} <FaBath /> | {millify(property.area)} sqft <BsGridFill />
+                {property?.rooms}<FaBed /> | {property?.baths} <FaBath /> | {property.area ? millify(property?.area) : ""} sqft <BsGridFill />
             </Flex>
             {/* description and title */}
             <Box marginTop="2">
-                <Text fontSize="lg" marginBottom="2" fontWeight="bold">{property.title}</Text>
-                <Text lineHeight="2" color="gray.600">{property.description}</Text>
+                <Text fontSize="lg" marginBottom="2" fontWeight="bold">{property?.title}</Text>
+                <Text lineHeight="2" color="gray.600">{property?.description}</Text>
             </Box>
             {/* type status and furnishingStatus */}
             <Flex flexDirection="column" textTransform="uppercase" >
                 <Flex justifyContent="space-between" w="400px" borderBottom="1px" borderColor="gray.100" p="3">
                     <Text>Type </Text>
-                    <Text fontWeight="bold">{property.type}</Text>
+                    <Text fontWeight="bold">{property?.type}</Text>
                 </Flex>
 
                 <Flex justifyContent="space-between" w="400px" borderBottom="1px" borderColor="gray.100" p="3">
                     <Text>Purpose </Text>
-                    <Text fontWeight="bold">{property.purpose}</Text>
+                    <Text fontWeight="bold">{property?.purpose}</Text>
                 </Flex>
 
                 {property.furnishingStatus && (
                     <Flex justifyContent="space-between" w="400px" borderBottom="1px" borderColor="gray.100" p="3">
                         <Text>FurnishingStatus </Text>
-                        <Text fontWeight="bold">{property.furnishingStatus}</Text>
+                        <Text fontWeight="bold">{property?.furnishingStatus}</Text>
                     </Flex>
                 )}                
             </Flex>
 
             <Box>
-                {property.amenities.length > 0 && (
+                {property?.amenities?.length > 0 && (
                     <Text fontSize="2xl" fontWeight="black" marginTop="5">Facilities</Text>
                 )}
                 <Flex flexWrap="wrap" >
